@@ -1,8 +1,15 @@
 import React from "react";
-import "./App.css";
+import "./css/App.css";
+import Header from "./components/Header";
+import BoardAndControls from "./components/BoardAndControls";
 
-function App() {
-  return <div className="App">Hello</div>;
-}
+const App = () => {
+  return (
+    <div className="App">
+      <Header />
+      <BoardAndControls />
+    </div>
+  );
+};
 
 export default App;
