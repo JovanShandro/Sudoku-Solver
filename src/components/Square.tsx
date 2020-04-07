@@ -16,7 +16,7 @@ const Square: React.FC<Props> = ({ value, setBoardEntry }) => {
       maxLength={1}
       value={value}
       onChange={t =>
-        setBoardEntry(t.currentTarget.value.replace(/[^0-9]/g, ""))
+        setBoardEntry(t.currentTarget.value.replace(/[^1-9]/g, ""))
       }
     />
   );
