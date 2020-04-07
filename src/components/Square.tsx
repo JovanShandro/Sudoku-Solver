@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import "../css/Square.css";
 
-const Square = () => {
-  const [value, setValue] = useState<string>("");
+type Digit = "" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
+interface Props {
+  setBoardEntry: Function;
+  value: Digit;
+}
+
+const Square: React.FC<Props> = ({ value, setBoardEntry }) => {
   return (
-    //<input maxlength="1" className="square" type="number" min="0" max="9" />
     <input
       className="square"
       type="text"
       maxLength={1}
       value={value}
-      onChange={t => setValue(t.currentTarget.value.replace(/[^0-9]/g, ""))}
-      //onInput={() =>
-      //let string: string = value.toString();
-      //string = string.replace(/[^0-9]/g, "");
-      //setValue(() => +string);
-      //}}
+      onChange={t =>
+        setBoardEntry(t.currentTarget.value.replace(/[^0-9]/g, ""))
+      }
     />
   );
 };

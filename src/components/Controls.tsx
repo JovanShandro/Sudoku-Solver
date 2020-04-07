@@ -1,12 +1,10 @@
 import React from "react";
 import "../css/Controls.css";
 
-type Board = number[][];
-
 interface Props {
-  clearBoard: (a) => void;
-  setImportedBoard: (b: Board) => void;
-  solveSudoku: (b: Board) => void;
+  clearBoard: Function;
+  setImportedBoard: Function;
+  solveSudoku: Function;
 }
 
 const Controls: React.FC<Props> = ({
