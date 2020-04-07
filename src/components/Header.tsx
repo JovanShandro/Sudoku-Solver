@@ -12,7 +12,8 @@ const Header = () => {
         displayed to inform you. You can use the clear button to completely
         empty the board and the import button to use a text file for entering
         values. The text file must look like
-        <span className="tooltip"> this</span>!
+        <span className="tooltip"> this</span>! Use 0 if you want the square to
+        be empty.
       </p>
     </div>
   );

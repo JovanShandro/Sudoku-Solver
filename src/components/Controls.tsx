@@ -1,5 +1,16 @@
 import React from "react";
-import { pipe, split, map, splitEvery, take } from "ramda";
+import {
+  pipe,
+  split,
+  map,
+  dropWhile,
+  dropLastWhile,
+  splitEvery,
+  identity,
+  take,
+  ifElse,
+  equals
+} from "ramda";
 import "../css/Controls.css";
 
 interface Props {
@@ -20,6 +31,11 @@ const Controls: React.FC<Props> = ({
         const importedBoard = pipe(
           split("\n"),
           map(row => splitEvery(1)(row.toString().replace(/[ ]/g, ""))),
+          map(row =>
+            map(col => ifElse(equals("0"), () => "", identity)(col))(row)
+          ),
+          dropWhile(equals([])),
+          dropLastWhile(equals([])),
           take(9)
         )(reader.result);
         setImportedBoard(importedBoard);
