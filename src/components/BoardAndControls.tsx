@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Square from "./Square";
 import Controls from "./Controls";
-import { clone, addIndex, map, not, equals, pipe } from "ramda";
+import { clone, addIndex, map, equals } from "ramda";
 import solve from "../lib/solve";
 import "../css/Board.css";
 
@@ -36,6 +36,7 @@ const Board = () => {
     if (equals([[]])(solvedBoard)) {
       setErrorMessage(() => "Sudoku cannot be solved!");
     } else {
+      setErrorMessage(() => "");
       setBoard(() => solvedBoard);
     }
   };
