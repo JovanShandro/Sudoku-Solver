@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Square from "./Square";
 import Controls from "./Controls";
-import { clone, addIndex, map } from "ramda";
+import { clone, addIndex, map, not, equals, pipe } from "ramda";
+import solve from "../lib/solve";
 import "../css/Board.css";
 
-type Board = string[][];
-
-const emptyBoard: Board = [
+const emptyBoard: string[][] = [
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""],
@@ -21,17 +20,26 @@ const emptyBoard: Board = [
 const mapWithIndex = addIndex(map);
 
 const Board = () => {
-  const [board, setBoard] = useState<Board>(emptyBoard);
+  const [board, setBoard] = useState<string[][]>(emptyBoard);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   const clearBoard = () => {
     setBoard(() => emptyBoard);
   };
 
-  const setImportedBoard = (importedBoard: Board) => {
+  const setImportedBoard = (importedBoard: string[][]) => {
     setBoard(() => importedBoard);
   };
+
   const solveSudoku = () => {
-    // TODO
+    const solvedBoard = solve(board);
+    if (equals([[]])(solvedBoard)) {
+      setErrorMessage(() => "Sudoku cannot be solved!");
+    } else {
+      setBoard(() => solvedBoard);
+    }
   };
+
   const setBoardEntry = row => col => value => {
     const newBoard = clone(board);
     newBoard[row][col] = value;
@@ -55,6 +63,7 @@ const Board = () => {
           ))(board)}
         </span>
       </div>
+      <div className="errorMsg">{errorMessage}</div>
       <Controls
         setImportedBoard={setImportedBoard}
         clearBoard={clearBoard}

@@ -24,8 +24,8 @@ const Controls: React.FC<Props> = ({
   setImportedBoard,
   solveSudoku
 }) => {
-  const handleFile = files => {
-    if (files[0]) {
+  const handleFile = e => {
+    if (e.target.files[0]) {
       const reader = new FileReader();
       reader.onloadend = () => {
         const importedBoard = pipe(
@@ -40,7 +40,8 @@ const Controls: React.FC<Props> = ({
         )(reader.result);
         setImportedBoard(importedBoard);
       };
-      reader.readAsText(files[0]);
+      reader.readAsText(e.target.files[0]);
+      e.target.value = "";
     }
   };
 
@@ -53,10 +54,10 @@ const Controls: React.FC<Props> = ({
           id="file"
           type="file"
           style={{ visibility: "hidden" }}
-          onChange={e => handleFile(e.target.files)}
+          onChange={e => handleFile(e)}
         />
       </div>
-      <button>Solve</button>
+      <button onClick={solveSudoku}>Solve</button>
     </div>
   );
 };
