@@ -46,14 +46,14 @@ const Controls: React.FC<Props> = ({
   };
 
   return (
-    <div>
+    <div className="buttons">
       <button onClick={clearBoard}>Clear</button>
-      <div>
+      <div className="fileInput">
         <label htmlFor="file">Import</label>
         <input
           id="file"
           type="file"
-          style={{ visibility: "hidden" }}
+          style={{ visibility: "hidden", display: 'none' }}
           onChange={e => handleFile(e)}
         />
       </div>

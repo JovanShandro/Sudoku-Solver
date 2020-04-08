@@ -1,4 +1,12 @@
 .board {
   display: flex;
   justify-content: center;
+  margin-top: 35px;
+}
+
+.errorMsg {
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(247, 111, 78);
+  font-size: 25px;
 }

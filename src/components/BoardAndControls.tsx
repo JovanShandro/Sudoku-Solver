@@ -55,6 +55,7 @@ const Board = () => {
             <div className="row" key={rowNr}>
               {mapWithIndex((entry: string, colNr: number) => (
                 <Square
+                  coordinates={{rowNr, colNr}}
                   setBoardEntry={value => setBoardEntry(rowNr)(colNr)(value)}
                   value={entry}
                   key={colNr}

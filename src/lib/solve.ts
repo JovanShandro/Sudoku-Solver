@@ -31,7 +31,7 @@ const solveSudoku = (): boolean => {
 const nextUnassignedLocation = (coordinates: Coordinates): boolean => {
   for (coordinates.row = 0; coordinates.row < 9; coordinates.row++)
     for (coordinates.col = 0; coordinates.col < 9; coordinates.col++)
-      if (solvedBoard[coordinates.row][coordinates.col] == "") return true;
+      if (solvedBoard[coordinates.row][coordinates.col] === "") return true;
 
   return false;
 };
