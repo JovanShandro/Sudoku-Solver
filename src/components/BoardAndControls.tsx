@@ -34,7 +34,7 @@ const Board = () => {
   const solveSudoku = () => {
     const solvedBoard = solve(board);
     if (equals([[]])(solvedBoard)) {
-      setErrorMessage(() => "Sudoku cannot be solved!");
+      setErrorMessage(() => "Sudoku cannot be solved");
     } else {
       setErrorMessage(() => "");
       setBoard(() => solvedBoard);
@@ -65,7 +65,7 @@ const Board = () => {
           ))(board)}
         </span>
       </div>
-      <div className="errorMsg">{errorMessage}</div>
+      {errorMessage !== '' ? (<div className="errorMsg"><span><i className="fas fa-exclamation"></i>{errorMessage}</span></div>) : ''}
       <Controls
         setImportedBoard={setImportedBoard}
         clearBoard={clearBoard}

@@ -5,8 +5,23 @@
 }
 
 .errorMsg {
+  font-family: 'Comic Neue', cursive;
+  border: 2px solid rgb(85, 10, 85);
+  background-color: rgba(119, 54, 119, 0.664);
+  width: 320px;
+  height: 50px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 20px;
-  color: rgb(247, 111, 78);
+  color: rgb(255, 255, 255);
   font-size: 25px;
+}
+
+i { 
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
 }

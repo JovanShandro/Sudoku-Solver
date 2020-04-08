@@ -12,7 +12,6 @@ html {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   background-repeat: no-repeat;
-  overflow-y:scroll;
   min-height: 100%;
 }
 
