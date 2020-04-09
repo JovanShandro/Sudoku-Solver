@@ -1,6 +1,8 @@
 import { TimelineMax, CSSPlugin, Power2 } from "gsap";
 import * as R from "ramda";
 
+const plugins = [CSSPlugin];
+
 let squaresInZigZagOrder: HTMLInputElement[] = [];
 
 export default () => {
