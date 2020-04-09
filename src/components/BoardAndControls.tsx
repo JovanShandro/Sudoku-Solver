@@ -5,6 +5,7 @@ import { clone, addIndex, map, equals } from "ramda";
 import { solve, isValid } from "../lib/solve";
 import "../css/Board.css";
 
+type Digit = "" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 const emptyBoard: string[][] = [
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""],
@@ -48,16 +49,18 @@ const Board = () => {
     if (equals([[]])(solvedBoard)) {
       setErrorMessage(() => "Sudoku cannot be solved");
     } else {
-      document.querySelectorAll('.square').forEach(element => {
-        if((element as HTMLInputElement).value === "")
-          return element.classList.add('animate');
+      document.querySelectorAll(".square").forEach(element => {
+        if ((element as HTMLInputElement).value === "")
+          return element.classList.add("animate");
         else return element;
       });
       setErrorMessage(() => "");
       setTimeout(() => {
         setBoard(() => solvedBoard);
-        document.querySelectorAll('.square').forEach(element => element.classList.remove('animate'));
-      }, 1000)
+        document
+          .querySelectorAll(".square")
+          .forEach(element => element.classList.remove("animate"));
+      }, 500);
     }
   };
 
@@ -77,7 +80,7 @@ const Board = () => {
                 <Square
                   coordinates={{ rowNr, colNr }}
                   setBoardEntry={value => setBoardEntry(rowNr)(colNr)(value)}
-                  value={entry}
+                  value={entry as Digit}
                   key={colNr}
                 />
               ))(row)}
