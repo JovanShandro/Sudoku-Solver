@@ -3,13 +3,12 @@ import {
   pipe,
   split,
   map,
-  dropWhile,
-  dropLastWhile,
   splitEvery,
   identity,
   take,
   ifElse,
-  equals
+  equals,
+  filter
 } from "ramda";
 import "../css/Controls.css";
 
@@ -30,12 +29,13 @@ const Controls: React.FC<Props> = ({
       reader.onloadend = () => {
         const importedBoard = pipe(
           split("\n"),
-          map(row => splitEvery(1)(row.toString().replace(/[ ]/g, ""))),
-          map(row =>
-            map(col => ifElse(equals("0"), () => "", identity)(col))(row)
+          map((row: string) => splitEvery(1)(row.replace(/[ ]/g, ""))),
+          map((row: string[]) =>
+            map((col: string) => ifElse(equals("0"), () => "", identity)(col))(
+              row
+            )
           ),
-          dropWhile(equals([])),
-          dropLastWhile(equals([])),
+          filter((row: string[]) => !equals([], row)),
           take(9)
         )(reader.result);
         setImportedBoard(importedBoard);
@@ -53,7 +53,7 @@ const Controls: React.FC<Props> = ({
         <input
           id="file"
           type="file"
-          style={{ visibility: "hidden", display: 'none' }}
+          style={{ visibility: "hidden", display: "none" }}
           onChange={e => handleFile(e)}
         />
       </div>
