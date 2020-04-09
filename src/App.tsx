@@ -3,7 +3,11 @@ import "./css/App.css";
 import Header from "./components/Header";
 import BoardAndControls from "./components/BoardAndControls";
 
+
 const App = () => {
+
+  
+
   return (
     <div className="App">
       <Header />

@@ -18,6 +18,7 @@ const Square: React.FC<Props> = ({ value, setBoardEntry, coordinates }) => {
   const {rowNr, colNr} = coordinates;
   return (
     <input
+      id={`square-${rowNr}-${colNr}`}
       className={`square ${colNr % 3 === 2 ? "m-right" : (rowNr % 3 === 2 ? "m-bottom" : '')}`}
       type="text"
       maxLength={1}

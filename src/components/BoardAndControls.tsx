@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Square from "./Square";
 import Controls from "./Controls";
 import { clone, addIndex, map, equals } from "ramda";
 import { solve, isValid } from "../lib/solve";
+import animate from '../lib/animate';
 import "../css/Board.css";
+
+
 
 type Digit = "" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 const emptyBoard: string[][] = [
@@ -22,6 +25,10 @@ const mapWithIndex = addIndex(map);
 const Board = () => {
   const [board, setBoard] = useState<string[][]>(emptyBoard);
   const [errorMessage, setErrorMessage] = useState<string>("");
+
+  useEffect(()=> {
+    animate();
+  },[])
 
   const clearBoard = () => {
     setErrorMessage(() => "");

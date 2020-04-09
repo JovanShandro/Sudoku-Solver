@@ -17,6 +17,7 @@ button {
   border: 2px white solid;
   color: white;
   font-weight: 700;
+  outline: none;
   width: 100px;
 }
 
