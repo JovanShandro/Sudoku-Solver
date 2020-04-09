@@ -16,7 +16,6 @@ const emptyBoard: string[][] = [
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""]
 ];
-
 const mapWithIndex = addIndex(map);
 
 const Board = () => {
@@ -36,10 +35,10 @@ const Board = () => {
   const solveSudoku = () => {
     switch (isValid(board)) {
       case 1:
-        setErrorMessage(() => "Sodoku is already full!");
+        setErrorMessage(() => "Sudoku is already full!");
         return;
       case 2:
-        setErrorMessage(() => "Sodoku is invalid! Recheck the values!");
+        setErrorMessage(() => "Sudoku is invalid! Recheck the values!");
         return;
       default:
         break;
@@ -49,8 +48,16 @@ const Board = () => {
     if (equals([[]])(solvedBoard)) {
       setErrorMessage(() => "Sudoku cannot be solved");
     } else {
+      document.querySelectorAll('.square').forEach(element => {
+        if((element as HTMLInputElement).value === "")
+          return element.classList.add('animate');
+        else return element;
+      });
       setErrorMessage(() => "");
-      setBoard(() => solvedBoard);
+      setTimeout(() => {
+        setBoard(() => solvedBoard);
+        document.querySelectorAll('.square').forEach(element => element.classList.remove('animate'));
+      }, 1000)
     }
   };
 

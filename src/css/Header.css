@@ -42,7 +42,7 @@ p {
   opacity: 1;
 }
 
-hr {
-  margin: 5px;
-  border: none;
+span.br {
+  display: block;
+  height: 9px;
 }

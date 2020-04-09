@@ -16,11 +16,11 @@ const Header = () => {
             1 2 3&nbsp; 4 5 6&nbsp; 7 8 9 <br />
             4 5 6&nbsp; 7 8 9&nbsp; 1 2 3 <br />
             7 8 9&nbsp; 1 2 3&nbsp; 4 5 6 <br />
-            <hr />
+            <span className="br"></span>
             2 1 4&nbsp; 3 6 5&nbsp; 8 9 7 <br />
             3 6 5&nbsp; 8 9 7&nbsp; 2 1 4 <br />
             8 9 7&nbsp; 2 1 4&nbsp; 3 6 5 <br />
-            <hr />
+            <span className="br"></span>
             5 3 1&nbsp; 6 4 2&nbsp; 9 7 8 <br />
             6 4 2&nbsp; 9 7 8&nbsp; 5 3 1 <br />
             9 7 8&nbsp; 5 3 1&nbsp; 6 4 2 <br />
