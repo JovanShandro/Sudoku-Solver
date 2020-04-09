@@ -13,9 +13,9 @@ import {
 import "../css/Controls.css";
 
 interface Props {
-  clearBoard: Function;
-  setImportedBoard: Function;
-  solveSudoku: Function;
+  clearBoard: () => void;
+  setImportedBoard: (board: string[][]) => void;
+  solveSudoku: () => void;
 }
 
 const Controls: React.FC<Props> = ({
