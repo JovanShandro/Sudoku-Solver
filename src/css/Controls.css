@@ -1,52 +1,61 @@
 .buttons {
-    margin-right: 15px;
-    margin-top: 30px;
-    display: flex;
-    height: 45px;
-    justify-content: space-evenly;
+  margin-right: 15px;
+  margin-top: 30px;
+  display: flex;
+  height: 45px;
+  justify-content: space-evenly;
 }
 
-.fileInput, button {
-    transition: 0.5s;
-    overflow: hidden;
-    font-family: 'Comic Neue', cursive;
-    font-size: 17px;
-    position: relative;
-    border-radius: 20px;
-    border: 2px white solid;
-    color: white;
-    font-weight: 700;
-    width: 100px;
+.fileInput,
+button {
+  transition: 0.5s;
+  overflow: hidden;
+  font-family: "Comic Neue", cursive;
+  font-size: 17px;
+  position: relative;
+  border-radius: 20px;
+  border: 2px white solid;
+  color: white;
+  font-weight: 700;
+  width: 100px;
 }
 
 .fileInput {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
-    background-color: transparent;  
+  background-color: transparent;
 }
 
-button:hover, .fileInput:hover {
-    color: #3c1053;
-    border: 0px;
+button:hover,
+.fileInput:hover {
+  color: #3c1053;
+  border: 0px;
 }
 
-button::before, .fileInput::before {
-    content: '';
-    background-color: white;
-    position: absolute;
-    border-radius: 20px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    z-index: -1;
-    transition: 0.5s;
+button::before,
+.fileInput::before {
+  content: "";
+  background-color: white;
+  position: absolute;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  z-index: -1;
+  transition: 0.5s;
 }
 
-button:hover::before, .fileInput:hover::before {
-    height: 100%;
+button:hover::before,
+.fileInput:hover::before {
+  height: 100%;
+}
+
+label {
+  width: 100%;
+  text-align: center;
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Square from "./Square";
 import Controls from "./Controls";
 import { clone, addIndex, map, equals } from "ramda";
-import solve from "../lib/solve";
+import { solve, isValid } from "../lib/solve";
 import "../css/Board.css";
 
 const emptyBoard: string[][] = [
@@ -24,14 +24,27 @@ const Board = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const clearBoard = () => {
+    setErrorMessage(() => "");
     setBoard(() => emptyBoard);
   };
 
   const setImportedBoard = (importedBoard: string[][]) => {
+    setErrorMessage(() => "");
     setBoard(() => importedBoard);
   };
 
   const solveSudoku = () => {
+    switch (isValid(board)) {
+      case 1:
+        setErrorMessage(() => "Sodoku is already full!");
+        return;
+      case 2:
+        setErrorMessage(() => "Sodoku is invalid! Recheck the values!");
+        return;
+      default:
+        break;
+    }
+
     const solvedBoard = solve(board);
     if (equals([[]])(solvedBoard)) {
       setErrorMessage(() => "Sudoku cannot be solved");
@@ -55,7 +68,7 @@ const Board = () => {
             <div className="row" key={rowNr}>
               {mapWithIndex((entry: string, colNr: number) => (
                 <Square
-                  coordinates={{rowNr, colNr}}
+                  coordinates={{ rowNr, colNr }}
                   setBoardEntry={value => setBoardEntry(rowNr)(colNr)(value)}
                   value={entry}
                   key={colNr}
@@ -65,7 +78,16 @@ const Board = () => {
           ))(board)}
         </span>
       </div>
-      {errorMessage !== '' ? (<div className="errorMsg"><span><i className="fas fa-exclamation"></i>{errorMessage}</span></div>) : ''}
+      {errorMessage !== "" ? (
+        <div className="errorMsg">
+          <span>
+            <i className="fas fa-exclamation"></i>
+            {errorMessage}
+          </span>
+        </div>
+      ) : (
+        ""
+      )}
       <Controls
         setImportedBoard={setImportedBoard}
         clearBoard={clearBoard}
