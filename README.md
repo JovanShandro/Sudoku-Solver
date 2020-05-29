@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Check deployed app
+You can check the page [here](https://focused-villani-6bab24.netlify.com/)
 
 ## Available Scripts
 
