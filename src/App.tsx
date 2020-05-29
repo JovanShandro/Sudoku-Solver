@@ -5,9 +5,6 @@ import BoardAndControls from "./components/BoardAndControls";
 
 
 const App = () => {
-
-  
-
   return (
     <div className="App">
       <Header />

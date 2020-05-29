@@ -6,9 +6,8 @@ import { solve, isValid } from "../lib/solve";
 import animate from '../lib/animate';
 import "../css/Board.css";
 
-
-
 type Digit = "" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
 const emptyBoard: string[][] = [
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""],
